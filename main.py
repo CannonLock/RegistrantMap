@@ -45,7 +45,10 @@ def get_joined_df():
 def mapped_institutions_to_map():
     joined_df = get_joined_df()
 
-    m = folium.Map(location=[39.8283, -98.5795], zoom_start=4, tiles=f"https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v12/tiles/{{z}}/{{x}}/{{y}}?access_token={os.environ['MAPBOX_KEY']}", attr="Maps via Mapbox")
+    location = [22.825824965107596, -10.90374907433913]
+    zoom_start = 2
+
+    m = folium.Map(location=location, zoom_start=zoom_start, tiles=f"https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v12/tiles/{{z}}/{{x}}/{{y}}?access_token={os.environ['MAPBOX_KEY']}", attr="Maps via Mapbox")
 
     for row in joined_df.to_dict(orient="records"):
 
@@ -57,7 +60,7 @@ def mapped_institutions_to_map():
 
     m.save("html/in_person_institutions.html")
 
-    m = folium.Map(location=[39.8283, -98.5795], zoom_start=4, tiles=f"https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v12/tiles/{{z}}/{{x}}/{{y}}?access_token={os.environ['MAPBOX_KEY']}", attr="Maps via Mapbox")
+    m = folium.Map(location=location, zoom_start=zoom_start, tiles=f"https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v12/tiles/{{z}}/{{x}}/{{y}}?access_token={os.environ['MAPBOX_KEY']}", attr="Maps via Mapbox")
 
     for row in joined_df.to_dict(orient="records"):
 
@@ -69,7 +72,7 @@ def mapped_institutions_to_map():
 
     m.save("html/remote_institutions.html")
 
-    m = folium.Map(location=[39.8283, -98.5795], zoom_start=4, tiles=f"https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v12/tiles/{{z}}/{{x}}/{{y}}?access_token={os.environ['MAPBOX_KEY']}", attr="Maps via Mapbox")
+    m = folium.Map(location=location, zoom_start=zoom_start, tiles=f"https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v12/tiles/{{z}}/{{x}}/{{y}}?access_token={os.environ['MAPBOX_KEY']}", attr="Maps via Mapbox")
 
     for row in joined_df.to_dict(orient="records"):
 
